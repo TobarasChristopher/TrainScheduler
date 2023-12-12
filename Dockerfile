@@ -17,3 +17,5 @@ RUN rake db:migrate
 RUN rails test
 RUN rails assets:precompile
 CMD [ "rails", "server"]
+
+#test
