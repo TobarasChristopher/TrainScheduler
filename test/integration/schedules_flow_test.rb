@@ -3,6 +3,7 @@ require 'test_helper'
 class SchedulesFlowTest < ActionDispatch::IntegrationTest
   test "can create a schedule" do
     get "/schedules/new"
+    get schedule_path(schedule.id)
     assert_response :success
 
     assert_difference('Schedule.count') do
