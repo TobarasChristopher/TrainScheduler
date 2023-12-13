@@ -3,6 +3,7 @@ require "test_helper"
 class SchedulesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @schedule = schedules(:one)
+    @schedule.update(schetime: Time.current + 1.day)
   end
 
   test "should get index" do
