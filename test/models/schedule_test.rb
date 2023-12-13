@@ -7,7 +7,7 @@ class ScheduleTest < ActiveSupport::TestCase
   end
 
   test "should save schedule with all attributes" do
-    schedule = Schedule.new(origin: "Sample Origin", destination: "Sample destination", schetime: Time.now + 1.day)
+    schedule = Schedule.new(origin: "Sample Origin", destination: "Sample destination", schetime: DateTime.parse("2023-12-13 14:30:00"))
     assert schedule.save, "Could not save the schedule with all attributes"
   end
 end
