@@ -31,7 +31,7 @@ gem "rails-controller-testing"
 
 gem "validates_timeliness"
 
-gem "sidekiq"
+gem "delayed_job_active_record"
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
