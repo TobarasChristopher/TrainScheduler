@@ -11,6 +11,32 @@
   <% end %>
 </div>
 
-<%= render 'shared/schedules_popup_js', schedules: @schedules %>
+<div id="departure-alert"></div>
+
+<script>
+  // Function to check departure time
+  function checkDepartureTime(departureTime) {
+    const currentTime = new Date();
+    const remainingTime = new Date(departureTime) - currentTime;
+
+    if (remainingTime <= 0) {
+      document.getElementById('departure-alert').innerHTML = 'The train has departed!';
+    }
+  }
+
+  function startCheckingDeparture(departureTime) {
+    checkDepartureTime(departureTime); // Check immediately
+
+    // Check every second (1000 milliseconds)
+    const intervalId = setInterval(function() {
+      checkDepartureTime(departureTime);
+    }, 1000);  }
+
+  // Replace this with your Rails variable that holds departure time
+  const departureTime = new Date('<%= @train.departure_time %>');
+
+  // Start checking departure time
+  startCheckingDeparture(departureTime);
+</script>
 
 <%= link_to "New schedule", new_schedule_path %>
