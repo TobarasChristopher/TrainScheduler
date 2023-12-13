@@ -7,6 +7,7 @@ $(document).ready(function() {
         dataType: 'json',
         success: function(data) {
           data.forEach(function(schedule) {
+            print(schedule)
             alert('Schedule from ' + schedule.origin + ' to ' + schedule.destination + ' has expired at ' + schedule.schetime);
             // Customize the alert message or use a different way to notify the user
           });
