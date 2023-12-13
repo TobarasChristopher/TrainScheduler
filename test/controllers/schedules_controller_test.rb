@@ -20,6 +20,9 @@ class SchedulesControllerTest < ActionDispatch::IntegrationTest
       post schedules_url, params: { schedule: { destination: @schedule.destination, origin: @schedule.origin, schetime: @schedule.schetime } }
     end
 
+    if Schedule.last.errors.any?
+      puts "Creation failed with errors: #{Schedule.last.errors.full_messages.join(', ')}"
+    end
     assert_redirected_to schedule_url(Schedule.last)
   end
 
@@ -35,6 +38,9 @@ class SchedulesControllerTest < ActionDispatch::IntegrationTest
 
   test "should update schedule" do
     patch schedule_url(@schedule), params: { schedule: { destination: @schedule.destination, origin: @schedule.origin, schetime: @schedule.schetime } }
+    if @schedule.errors.any?
+      puts "Update failed with errors: #{schedule.errors.full_messages.join(', ')}"
+    end
     assert_redirected_to schedule_url(@schedule)
   end
 
