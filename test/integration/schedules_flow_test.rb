@@ -6,7 +6,7 @@ class SchedulesFlowTest < ActionDispatch::IntegrationTest
     assert_response :success
 
     assert_difference('Schedule.count') do
-      post schedules_path, params: { schedule: { origin: "New Origin", destination: "New destination", schetime: "" } }
+      post schedules_path, params: { schedule: { origin: "New Origin", destination: "New destination", schetime: DateTime.parse("2023-12-13 14:30:00") } }
     end
 
     assert_redirected_to schedule_path(assigns(:product))
