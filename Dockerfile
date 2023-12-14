@@ -3,10 +3,15 @@ FROM ruby:3.2.2
 RUN apt-get update -yqq
 RUN apt-get install -yqq --no-install-recommends nodejs
 
+
+RUN npm install -g yarn
+
 COPY . /usr/src/app/
 ARG SECRET_KEY_BASE
 
 WORKDIR /usr/src/app
+
+
 
 ENV RAILS_ENV=production
 ENV SECRET_KEY_BASE=${SECRET_KEY_BASE}
