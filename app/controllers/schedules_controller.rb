@@ -1,10 +1,7 @@
 class SchedulesController < ApplicationController
   before_action :set_schedule, only: %i[ show edit update destroy ]
 
-  def expired_schedules
-    @expired_schedules = Schedule.where('schetime < ?', Time.now)
-    render json: @expired_schedules
-  end
+
 
   # GET /schedules or /schedules.json
   def index
