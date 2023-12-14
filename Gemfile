@@ -33,6 +33,10 @@ gem "validates_timeliness"
 
 gem "delayed_job_active_record"
 
+gem "cssbundling-rails"
+
+
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
