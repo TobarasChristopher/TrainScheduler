@@ -1,34 +1,50 @@
-<%= form_with(model: schedule) do |form| %>
-  <% if schedule.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(schedule.errors.count, "error") %> prohibited this schedule from being saved:</h2>
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+        body {
+          font-family: "Courier New", Courier, monospace;
+          color: #ffc107;
+          text-align:center;
+        }
+      </style>
+  </head>
+  <body class="bg-black">
+  <div class="p-3 mb-2 bg-black text-white border-bottom border-top border-secondary">
+    <div class="container-fluid p-3 bg-dark text-warning text-center ">
+      <%= form_with(model: schedule) do |form| %>
+        <% if schedule.errors.any? %>
+          <div style="color: red">
+            <h2><%= pluralize(schedule.errors.count, "error") %> prohibited this schedule from being saved:</h2>
 
-      <ul>
-        <% schedule.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+            <ul>
+              <% schedule.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
-      </ul>
+
+        <div>
+          <%= form.label :origin, style: "display: block" %>
+          <%= form.text_field :origin %>
+        </div>
+
+        <div>
+          <%= form.label :destination, style: "display: block" %>
+          <%= form.text_field :destination %>
+        </div>
+
+        <div>
+          <%= form.label :Arriving, style: "display: block" %>
+          <%= form.time_field :schetime %>
+        </div>
+
+        <div>
+          <%= form.submit %>
+        </div>
+      <% end %>
+      </div>
     </div>
-  <% end %>
-
-  <div>
-    <%= form.label :origin, style: "display: block" %>
-    <%= form.text_field :origin %>
-  </div>
-
-  <div>
-    <%= form.label :destination, style: "display: block" %>
-    <%= form.text_field :destination %>
-  </div>
-
-
-  #edit schetime name to arriving in website
-  <div>
-    <%= form.label :Arriving, style: "display: block" %>
-    <%= form.time_field :schetime %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+  </body>
+<html>

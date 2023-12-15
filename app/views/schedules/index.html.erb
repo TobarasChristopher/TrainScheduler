@@ -2,25 +2,41 @@
 <html>
   <head>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <body>
+    
+    <style>
+      body {
+        font-family: "Courier New", Courier, monospace;
+      }
+    </style>
   </head>
+    <body class="bg-black">
+      <div class="p-3 mb-2 bg-black text-white border-bottom border-secondary">
+        <div class="container-fluid p-3 bg-dark text-warning text-center ">
+          <h1>Train Scheduler</h1>
+          <p>A helpful reminder for making it on time!</p> 
+        </div>
+      
+        <div class="container-fluid p-2 bg-black text-warning text-center">
+        </div>
 
-      <p style="color: green"><%= notice %></p>
+        <p style="color: green"><%= notice %></p>
+        <div class="container-fluid p-3 bg-dark text-warning text-center">
+          <h1 class="border-bottom border-black pb-2">Timetable</h1>
 
-      <h1>Timetable</h1>
+          <div id="schedules" >
+            <% @schedules.each do |schedule| %>
+              <%= render schedule %>
+              <p class="border-bottom border-black pb-2">
+                <%= link_to "Show this schedule", schedule %>
+              </p>
+            <% end %>
+          </div>
 
-      <div id="schedules">
-        <% @schedules.each do |schedule| %>
-          <%= render schedule %>
-          <p>
-            <%= link_to "Show this schedule", schedule %>
-          </p>
-        <% end %>
+
+
+          <%= link_to "New schedule", new_schedule_path %>
+        </div>
       </div>
-
-
-      <%= link_to "New schedule", new_schedule_path %>
-
-      <script src=”https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity=”sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL” crossorigin=”anonymous”></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.j" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     </body>
   </html>
