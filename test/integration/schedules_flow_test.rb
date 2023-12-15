@@ -6,12 +6,12 @@ class SchedulesFlowTest < ActionDispatch::IntegrationTest
     assert_response :success
 
     assert_difference('Schedule.count') do
-      post schedules_path, params: { schedule: { origin: "New Origin", destination: "New destination", schetime: DateTime.parse("2023-12-13 14:30:00") } }
+      post schedules_path, params: { schedule: { origin: "New Origin", destination: "New destination", schetime: DateTime.parse("2024-12-13 23:55:00") } }
     end
 
     assert_redirected_to schedule_path(assigns(:schedule))
     follow_redirect!
 
-    assert_select 'p', 'Schedule was successfully created.'
+    assert_select 'p', 'Origin: New Origin'
   end
 end
