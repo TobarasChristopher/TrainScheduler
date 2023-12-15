@@ -9,6 +9,7 @@ RUN apt-get update -yqq \
     && npm install -g yarn \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
+RUN yarn add bootstrap
 
 # Set the working directory
 WORKDIR /usr/src/app/
