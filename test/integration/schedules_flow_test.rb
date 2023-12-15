@@ -12,6 +12,6 @@ class SchedulesFlowTest < ActionDispatch::IntegrationTest
     assert_redirected_to schedule_path(assigns(:schedule))
     follow_redirect!
 
-    assert_select 'p', 'Schedule was successfully created.'
+    assert_select 'p', 'Origin: New Origin'
   end
 end
