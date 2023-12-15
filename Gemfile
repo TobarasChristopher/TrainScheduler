@@ -35,6 +35,8 @@ gem "delayed_job_active_record"
 
 gem "cssbundling-rails"
 
+gem 'bootstrap-sass'
+
 
 
 # Use Redis adapter to run Action Cable in production
