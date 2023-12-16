@@ -21,7 +21,7 @@ COPY . /usr/src/app/
 ARG SECRET_KEY_BASE
 
 # Set environment variables
-ENV RAILS_ENV=production rake assets:precompile
+ENV RAILS_ENV=production
 ENV SECRET_KEY_BASE=${SECRET_KEY_BASE}
 
 # Install Bundler and project dependencies
