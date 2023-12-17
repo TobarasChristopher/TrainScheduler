@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
+# Scrapped job code to delete schedule
 
 if ! gem list foreman -i --silent; then
   echo "Installing foreman..."

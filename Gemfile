@@ -33,8 +33,11 @@ gem "validates_timeliness"
 
 gem "delayed_job_active_record"
 
+
+#Import cssbundling to allow rails to run CSS files
 gem "cssbundling-rails"
 
+#Import bootstrap-sass to run bootstrap 3
 gem 'bootstrap-sass'
 
 
